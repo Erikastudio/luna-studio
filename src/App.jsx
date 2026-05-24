@@ -6,7 +6,7 @@ import Offers from "./components/Offers";
 import Products from "./components/Products";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
-import WhatsappButton from "./components/WhatsappButton";
+import WhatsAppButton from "./components/WhatsappButton";
 
 export default function App() {
   // Estado para controlar cuántos productos hay en el carrito
