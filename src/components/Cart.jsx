@@ -50,7 +50,7 @@ export default function Cart({
     message += `%0ATotal: $${total.toLocaleString()}`;
 
     window.open(
-      `https://wa.me/573000000000?text=${message}`,
+      `https://wa.me/573134623765?text=${message}`,
       "_blank"
     );
   };
