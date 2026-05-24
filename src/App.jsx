@@ -9,26 +9,37 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
-  // Estado para controlar cuántos productos hay en el carrito
-  const [cartCount, setCartCount] = useState(0);
 
-  // Función para aumentar el carrito cuando le den clic al botón "+"
-  const addToCart = () => {
-    setCartCount(cartCount + 1);
+  // Carrito REAL
+  const [cart, setCart] = useState([]);
+
+  // Agregar productos
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
   };
+
+  // Cantidad total
+  const cartCount = cart.length;
 
   return (
     <div className="bg-white min-h-screen text-neutral-900 font-sans antialiased">
-      {/* Le pasamos el número actual al Navbar */}
+
+      {/* Navbar */}
       <Navbar cartCount={cartCount} />
+
       <Hero />
       <Categories />
       <Offers />
-      {/* Le pasamos la función de sumar a la sección de Productos */}
+
+      {/* Productos */}
       <Products addToCart={addToCart} />
+
       <Testimonials />
       <Footer />
+
+      {/* WhatsApp */}
       <WhatsAppButton />
+
     </div>
   );
 }
