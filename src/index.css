@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Aquí te dejo configurados tus colores de lujo para usarlos en toda la tienda */
+@theme {
+  --color-dark: #111111;
+  --color-gold: #D4AF37;
+}
+
+html {
+  scroll-behavior: smooth;
+}
