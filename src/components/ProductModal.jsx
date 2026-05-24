@@ -1,107 +1,140 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function ProductModal({ product, onClose, addToCart }) {
+export default function ProductModal({
+  product,
+  onClose,
+  addToCart
+}) {
+
   const [img, setImg] = useState("");
 
   useEffect(() => {
-    if (product) setImg(product.images[0]);
+    if (product) {
+      setImg(product.images?.[0] || product.img);
+    }
   }, [product]);
 
   if (!product) return null;
 
+  const images = product.images || [product.img];
+
   return (
-    <div style={{
-      position: "fixed",
-      inset: 0,
-      background: "rgba(0,0,0,0.8)",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      zIndex: 999
-    }}>
 
-      <div style={{
-        background: "#111",
-        padding: 20,
-        borderRadius: 12,
-        width: "90%",
-        maxWidth: 800,
-        display: "flex",
-        gap: 20
-      }}>
+    <AnimatePresence>
 
-        {/* IMAGEN */}
-        <div style={{ flex: 1 }}>
-          <img
-            src={img}
-            style={{
-              width: "100%",
-              height: 300,
-              objectFit: "cover",
-              borderRadius: 10
-            }}
-          />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[999] flex items-center justify-center p-4"
+      >
 
-          <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
-            {product.images.map((i, index) => (
+        <motion.div
+          initial={{ y: 40, opacity: 0, scale: 0.96 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 40, opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="bg-white w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-2"
+        >
+
+          {/* IMÁGENES */}
+          <div className="bg-neutral-100 p-4 md:p-6">
+
+            <div className="aspect-square overflow-hidden rounded-2xl bg-white">
+
               <img
-                key={index}
-                src={i}
-                onClick={() => setImg(i)}
-                style={{
-                  width: 60,
-                  height: 60,
-                  objectFit: "cover",
-                  borderRadius: 6,
-                  cursor: "pointer",
-                  border: img === i ? "2px solid yellow" : "none"
-                }}
+                src={img}
+                alt={product.name}
+                className="w-full h-full object-cover"
               />
-            ))}
+
+            </div>
+
+            {/* MINIATURAS */}
+            <div className="flex gap-3 mt-4">
+
+              {images.map((i, index) => (
+
+                <button
+                  key={index}
+                  onClick={() => setImg(i)}
+                  className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                    img === i
+                      ? "border-amber-500"
+                      : "border-transparent"
+                  }`}
+                >
+
+                  <img
+                    src={i}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+
+                </button>
+
+              ))}
+
+            </div>
+
           </div>
-        </div>
 
-        {/* INFO */}
-        <div style={{ flex: 1 }}>
-          <h2>{product.name}</h2>
+          {/* INFO */}
+          <div className="p-6 md:p-10 flex flex-col justify-center">
 
-          <p style={{ color: "#facc15", fontSize: 20 }}>
-            ${product.price}
-          </p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-neutral-400 mb-2">
+              Luna Store
+            </p>
 
-          <p style={{ color: "#aaa" }}>
-            {product.description}
-          </p>
+            <h2 className="text-3xl font-light uppercase tracking-wide text-neutral-900 mb-4">
+              {product.name}
+            </h2>
 
-          <button
-            onClick={() => addToCart(product)}
-            style={{
-              background: "#22c55e",
-              padding: 10,
-              width: "100%",
-              borderRadius: 8,
-              marginTop: 20,
-              fontWeight: "bold"
-            }}
-          >
-            Agregar al carrito
-          </button>
+            <div className="flex items-center gap-3 mb-6">
 
-          <button
-            onClick={onClose}
-            style={{
-              marginTop: 10,
-              width: "100%",
-              padding: 10,
-              background: "#333",
-              borderRadius: 8
-            }}
-          >
-            Cerrar
-          </button>
-        </div>
+              <span className="text-2xl font-medium text-neutral-900">
+                ${product.price}
+              </span>
 
-      </div>
-    </div>
+              {product.oldPrice && (
+                <span className="text-neutral-400 line-through">
+                  ${product.oldPrice}
+                </span>
+              )}
+
+            </div>
+
+            <p className="text-neutral-500 leading-relaxed mb-8">
+              {product.description || "Descubre una experiencia premium diseñada para elevar tu rutina de belleza con elegancia y sofisticación."}
+            </p>
+
+            {/* BOTONES */}
+            <div className="space-y-3">
+
+              <motion.button
+                whileTap={{ scale: 0.97 }}
+                onClick={() => addToCart(product)}
+                className="w-full bg-neutral-950 text-white py-4 rounded-2xl uppercase tracking-widest text-xs hover:bg-amber-500 hover:text-black transition-all duration-300"
+              >
+                Agregar al carrito
+              </motion.button>
+
+              <button
+                onClick={onClose}
+                className="w-full border border-neutral-200 py-4 rounded-2xl uppercase tracking-widest text-xs hover:bg-neutral-100 transition-all duration-300"
+              >
+                Cerrar
+              </button>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
+      </motion.div>
+
+    </AnimatePresence>
   );
 }
