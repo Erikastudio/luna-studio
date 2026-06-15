@@ -1,26 +1,26 @@
-export const products = [
+const products = [
   {
     id: 1,
-    name: "Camiseta Black",
+    name: "Base Seytu",
     price: 120,
-    image: "https://picsum.photos/600?random=1"
+    image: "/productos/baseseytu.png"
   },
   {
     id: 2,
-    name: "Hoodie Gold",
+    name: "Corrector Líquido Seytu",
     price: 220,
-    image: "https://picsum.photos/600?random=2"
+    image: "/productos/correctorliquidoseytu.webp"
   },
   {
     id: 3,
-    name: "Gorra Street",
+    name: "Crema Hidratante Seytu",
     price: 80,
-    image: "https://picsum.photos/600?random=3"
+    image: "/productos/cremahidratanteseytu.png"
   },
   {
     id: 4,
-    name: "Cargo Premium",
+    name: "Esponja Seytu",
     price: 180,
-    image: "https://picsum.photos/600?random=4"
+    image: "/productos/esponjaseytu.jpg"
   }
 ];
