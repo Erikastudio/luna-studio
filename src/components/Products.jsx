@@ -86,7 +86,84 @@ const dummyProducts = [
     price: "75.000",
     img: "/productos/ruborseytu.jpeg",
     images: ["/productos/ruborseytu.jpeg"]
-  }
+  },
+  {
+  id: 12,
+  name: "Accesorio Elegante",
+  price: "45.000",
+  img: "/productos/acc.webp",
+  images: ["/productos/acc.webp"]
+},
+{
+  id: 13,
+  name: "Accesorio Premium",
+  price: "55.000",
+  img: "/productos/acc1.jpg",
+  images: ["/productos/acc1.jpg"]
+},
+{
+  id: 14,
+  name: "Accesorio Fashion",
+  price: "50.000",
+  img: "/productos/acc2.jpg",
+  images: ["/productos/acc2.jpg"]
+},
+{
+  id: 15,
+  name: "Accesorio Deluxe",
+  price: "60.000",
+  img: "/productos/acc3.webp",
+  images: ["/productos/acc3.webp"]
+},
+{
+  id: 16,
+  name: "Accesorio Glam",
+  price: "65.000",
+  img: "/productos/acc4.webp",
+  images: ["/productos/acc4.webp"]
+},
+{
+  id: 17,
+  name: "Accesorio Exclusive",
+  price: "70.000",
+  img: "/productos/acc5.webp",
+  images: ["/productos/acc5.webp"]
+},
+{
+  id: 18,
+  name: "Camisa Elegante",
+  price: "89.000",
+  img: "/productos/camisa.webp",
+  images: ["/productos/camisa.webp"]
+},
+{
+  id: 19,
+  name: "Conjunto Moderno",
+  price: "149.000",
+  img: "/productos/conjunto.jpg",
+  images: ["/productos/conjunto.jpg"]
+},
+{
+  id: 20,
+  name: "Falda Fashion",
+  price: "79.000",
+  img: "/productos/falda.jpg",
+  images: ["/productos/falda.jpg"]
+},
+{
+  id: 21,
+  name: "Pantalón Casual",
+  price: "99.000",
+  img: "/productos/pantalon.jpg",
+  images: ["/productos/pantalon.jpg"]
+},
+{
+  id: 22,
+  name: "Vestido Elegante",
+  price: "129.000",
+  img: "/productos/vestido.webp",
+  images: ["/productos/vestido.webp"]
+}
 ];
 
   // FILTRO SEARCH
