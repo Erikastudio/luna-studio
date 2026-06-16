@@ -9,63 +9,85 @@ export default function Products({
 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const dummyProducts = [
-    {
-      id: 1,
-      name: "Glow Serum Premium",
-      price: "85.000",
-      oldPrice: "110.000",
-      tag: "Best Seller",
-      description: "Serum premium iluminador para una piel radiante y elegante.",
-      img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600",
-      images: [
-        "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600",
-        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=600"
-      ]
-    },
-
-    {
-      id: 2,
-      name: "Paleta Cuarzo Luna",
-      price: "62.000",
-      oldPrice: null,
-      tag: "Nuevo",
-      description: "Paleta elegante con tonos suaves inspirados en la luna.",
-      img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600",
-      images: [
-        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600",
-        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600"
-      ]
-    },
-
-    {
-      id: 3,
-      name: "Tónico Facial Botánico",
-      price: "45.000",
-      oldPrice: "55.000",
-      tag: "Sale",
-      description: "Tónico refrescante con extractos botánicos premium.",
-      img: "https://images.unsplash.com/photo-1608248597481-496100c8c836?q=80&w=600",
-      images: [
-        "https://images.unsplash.com/photo-1608248597481-496100c8c836?q=80&w=600",
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600"
-      ]
-    },
-
-    {
-      id: 4,
-      name: "Brocha Luxe Powder",
-      price: "38.000",
-      oldPrice: null,
-      tag: null,
-      description: "Brocha profesional ultra suave para acabado perfecto.",
-      img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600",
-      images: [
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600",
-        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=600"
-      ]
-    }
-  ];
+const dummyProducts = [
+  {
+    id: 1,
+    name: "Base Seytu",
+    price: "120.000",
+    img: "/productos/baseseytu.png",
+    images: ["/productos/baseseytu.png"]
+  },
+  {
+    id: 2,
+    name: "Corrector Líquido Seytu",
+    price: "95.000",
+    img: "/productos/correctorliquidoseytu.webp",
+    images: ["/productos/correctorliquidoseytu.webp"]
+  },
+  {
+    id: 3,
+    name: "Crema Hidratante Seytu",
+    price: "150.000",
+    img: "/productos/cremahidratanteseytu.png",
+    images: ["/productos/cremahidratanteseytu.png"]
+  },
+  {
+    id: 4,
+    name: "Esponja Seytu",
+    price: "35.000",
+    img: "/productos/esponjaseytu.jpg",
+    images: ["/productos/esponjaseytu.jpg"]
+  },
+  {
+    id: 5,
+    name: "Espuma Limpiadora Seytu",
+    price: "110.000",
+    img: "/productos/espumalimpiadoraseytu.jpg",
+    images: ["/productos/espumalimpiadoraseytu.jpg"]
+  },
+  {
+    id: 6,
+    name: "Gloss Seytu",
+    price: "60.000",
+    img: "/productos/glossseytu.jpg",
+    images: ["/productos/glossseytu.jpg"]
+  },
+  {
+    id: 7,
+    name: "Lápiz Delineador Seytu",
+    price: "45.000",
+    img: "/productos/lapizdelineadorseytu.png",
+    images: ["/productos/lapizdelineadorseytu.png"]
+  },
+  {
+    id: 8,
+    name: "Paleta de Sombras Seytu",
+    price: "180.000",
+    img: "/productos/paletadesombrasseytu.png",
+    images: ["/productos/paletadesombrasseytu.png"]
+  },
+  {
+    id: 9,
+    name: "Pestañina Seytu",
+    price: "85.000",
+    img: "/productos/pestañinaseytu.png",
+    images: ["/productos/pestañinaseytu.png"]
+  },
+  {
+    id: 10,
+    name: "Polvos Seytu",
+    price: "90.000",
+    img: "/productos/polvoseytu.jpg",
+    images: ["/productos/polvoseytu.jpg"]
+  },
+  {
+    id: 11,
+    name: "Rubor Seytu",
+    price: "75.000",
+    img: "/productos/ruborseytu.jpeg",
+    images: ["/productos/ruborseytu.jpeg"]
+  }
+];
 
   // FILTRO SEARCH
   const filteredProducts = dummyProducts.filter((product) =>
