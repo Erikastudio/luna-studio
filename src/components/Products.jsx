@@ -89,7 +89,7 @@ const dummyProducts = [
   },
   {
   id: 12,
-  name: "Accesorio Elegante",
+  name: "Collar Elegante",
   price: "45.000",
   img: "/productos/acc.webp",
   images: ["/productos/acc.webp"]
@@ -103,35 +103,35 @@ const dummyProducts = [
 },
 {
   id: 14,
-  name: "Accesorio Fashion",
+  name: "Collar Fashion",
   price: "50.000",
   img: "/productos/acc2.jpg",
   images: ["/productos/acc2.jpg"]
 },
 {
   id: 15,
-  name: "Accesorio Deluxe",
+  name: "Perla Collar Deluxe",
   price: "60.000",
   img: "/productos/acc3.webp",
   images: ["/productos/acc3.webp"]
 },
 {
   id: 16,
-  name: "Accesorio Glam",
+  name: "Bolso Glam",
   price: "65.000",
   img: "/productos/acc4.webp",
   images: ["/productos/acc4.webp"]
 },
 {
   id: 17,
-  name: "Accesorio Exclusive",
+  name: "Bolso Exclusive",
   price: "70.000",
   img: "/productos/acc5.webp",
   images: ["/productos/acc5.webp"]
 },
 {
   id: 18,
-  name: "Camisa Elegante",
+  name: "Camisa Moda",
   price: "89.000",
   img: "/productos/camisa.webp",
   images: ["/productos/camisa.webp"]
