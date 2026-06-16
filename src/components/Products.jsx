@@ -8,11 +8,12 @@ export default function Products({
 }) {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
-
+const [category, setCategory] = useState("Todos");
 const dummyProducts = [
   {
     id: 1,
     name: "Base Seytu",
+    category: "Maquillaje",
     price: "120.000",
     img: "/productos/baseseytu.png",
     images: ["/productos/baseseytu.png"]
@@ -20,6 +21,7 @@ const dummyProducts = [
   {
     id: 2,
     name: "Corrector Líquido Seytu",
+    category: "Maquillaje",
     price: "95.000",
     img: "/productos/correctorliquidoseytu.webp",
     images: ["/productos/correctorliquidoseytu.webp"]
@@ -27,6 +29,7 @@ const dummyProducts = [
   {
     id: 3,
     name: "Crema Hidratante Seytu",
+    category: "Cuidado Facial",
     price: "150.000",
     img: "/productos/cremahidratanteseytu.png",
     images: ["/productos/cremahidratanteseytu.png"]
@@ -34,6 +37,7 @@ const dummyProducts = [
   {
     id: 4,
     name: "Esponja Seytu",
+    category: "Accesorios",
     price: "35.000",
     img: "/productos/esponjaseytu.jpg",
     images: ["/productos/esponjaseytu.jpg"]
@@ -41,6 +45,7 @@ const dummyProducts = [
   {
     id: 5,
     name: "Espuma Limpiadora Seytu",
+    category: "Cuidado Facial",
     price: "110.000",
     img: "/productos/espumalimpiadoraseytu.jpg",
     images: ["/productos/espumalimpiadoraseytu.jpg"]
@@ -48,6 +53,7 @@ const dummyProducts = [
   {
     id: 6,
     name: "Gloss Seytu",
+    category: "Maquillaje",
     price: "60.000",
     img: "/productos/glossseytu.jpg",
     images: ["/productos/glossseytu.jpg"]
@@ -55,6 +61,7 @@ const dummyProducts = [
   {
     id: 7,
     name: "Lápiz Delineador Seytu",
+    category: "Maquillaje",
     price: "45.000",
     img: "/productos/lapizdelineadorseytu.png",
     images: ["/productos/lapizdelineadorseytu.png"]
@@ -62,6 +69,7 @@ const dummyProducts = [
   {
     id: 8,
     name: "Paleta de Sombras Seytu",
+    category: "Maquillaje",
     price: "180.000",
     img: "/productos/paletadesombrasseytu.png",
     images: ["/productos/paletadesombrasseytu.png"]
@@ -69,6 +77,7 @@ const dummyProducts = [
   {
     id: 9,
     name: "Pestañina Seytu",
+    category: "Maquillaje",
     price: "85.000",
     img: "/productos/pestañinaseytu.png",
     images: ["/productos/pestañinaseytu.png"]
@@ -76,6 +85,7 @@ const dummyProducts = [
   {
     id: 10,
     name: "Polvos Seytu",
+    category: "Maquillaje",
     price: "90.000",
     img: "/productos/polvoseytu.jpg",
     images: ["/productos/polvoseytu.jpg"]
@@ -83,6 +93,7 @@ const dummyProducts = [
   {
     id: 11,
     name: "Rubor Seytu",
+    category: "Maquillaje",
     price: "75.000",
     img: "/productos/ruborseytu.jpeg",
     images: ["/productos/ruborseytu.jpeg"]
@@ -90,6 +101,7 @@ const dummyProducts = [
   {
   id: 12,
   name: "Collar Elegante",
+  category: "Accesorios",
   price: "45.000",
   img: "/productos/acc.webp",
   images: ["/productos/acc.webp"]
@@ -97,6 +109,7 @@ const dummyProducts = [
 {
   id: 13,
   name: "Accesorio Premium",
+  category: "Accesorios",
   price: "55.000",
   img: "/productos/acc1.jpg",
   images: ["/productos/acc1.jpg"]
@@ -104,6 +117,7 @@ const dummyProducts = [
 {
   id: 14,
   name: "Collar Fashion",
+  category: "Accesorios",
   price: "50.000",
   img: "/productos/acc2.jpg",
   images: ["/productos/acc2.jpg"]
@@ -111,6 +125,7 @@ const dummyProducts = [
 {
   id: 15,
   name: "Perla Collar Deluxe",
+  category: "Accesorios",
   price: "60.000",
   img: "/productos/acc3.webp",
   images: ["/productos/acc3.webp"]
@@ -118,6 +133,7 @@ const dummyProducts = [
 {
   id: 16,
   name: "Bolso Glam",
+  category: "Accesorios",
   price: "65.000",
   img: "/productos/acc4.webp",
   images: ["/productos/acc4.webp"]
@@ -125,6 +141,7 @@ const dummyProducts = [
 {
   id: 17,
   name: "Bolso Exclusive",
+  category: "Accesorios",
   price: "70.000",
   img: "/productos/acc5.webp",
   images: ["/productos/acc5.webp"]
@@ -132,6 +149,7 @@ const dummyProducts = [
 {
   id: 18,
   name: "Camisa Moda",
+  category: "Ropa",
   price: "89.000",
   img: "/productos/camisa.webp",
   images: ["/productos/camisa.webp"]
@@ -139,6 +157,7 @@ const dummyProducts = [
 {
   id: 19,
   name: "Conjunto Moderno",
+  category: "Ropa",
   price: "149.000",
   img: "/productos/conjunto.jpg",
   images: ["/productos/conjunto.jpg"]
@@ -146,6 +165,7 @@ const dummyProducts = [
 {
   id: 20,
   name: "Falda Fashion",
+  category: "Ropa",
   price: "79.000",
   img: "/productos/falda.jpg",
   images: ["/productos/falda.jpg"]
@@ -153,6 +173,7 @@ const dummyProducts = [
 {
   id: 21,
   name: "Pantalón Casual",
+  category: "Ropa",
   price: "99.000",
   img: "/productos/pantalon.jpg",
   images: ["/productos/pantalon.jpg"]
@@ -160,6 +181,7 @@ const dummyProducts = [
 {
   id: 22,
   name: "Vestido Elegante",
+  category: "Ropa",
   price: "129.000",
   img: "/productos/vestido.webp",
   images: ["/productos/vestido.webp"]
@@ -167,9 +189,16 @@ const dummyProducts = [
 ];
 
   // FILTRO SEARCH
-  const filteredProducts = dummyProducts.filter((product) =>
-    product.name.toLowerCase().includes(search.toLowerCase())
-  );
+ const filteredProducts = dummyProducts.filter((product) => {
+  const matchSearch = product.name
+    .toLowerCase()
+    .includes(search.toLowerCase());
+
+  const matchCategory =
+    category === "Todos" || product.category === category;
+
+  return matchSearch && matchCategory;
+});
 
   return (
     <>
@@ -182,7 +211,7 @@ const dummyProducts = [
           </h2>
 
           <p className="text-xl font-light tracking-wide uppercase text-neutral-900">
-            Productos Destacados
+            TIENDA SEYTU Y MODA
           </p>
 
         </div>
@@ -207,7 +236,34 @@ const dummyProducts = [
           </div>
 
         )}
+<div className="flex flex-wrap justify-center gap-3 mb-8">
 
+  <button onClick={() => setCategory("Todos")}>
+    Todos
+  </button>
+
+  <button onClick={() => setCategory("Maquillaje")}>
+    Maquillaje
+  </button>
+
+  <button onClick={() => setCategory("Cuidado Facial")}>
+    Cuidado Facial
+  </button>
+
+  <button onClick={() => setCategory("Accesorios")}>
+    Accesorios
+  </button>
+
+  <button
+  onClick={() => {
+    console.log("Ropa");
+    setCategory("Ropa");
+  }}
+>
+  Ropa
+</button>
+
+</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
 
           {filteredProducts.map((prod) => (
