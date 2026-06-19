@@ -26,6 +26,7 @@ export default function App() {
   }, [cart]);
 return (
     <>
+    <h1>🔥 PRUEBA VERCEL FUNCIONANDO 🔥</h1>
       <OfferBanner />
 
       <Navbar />
