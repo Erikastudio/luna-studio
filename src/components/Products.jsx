@@ -10,7 +10,16 @@ export default function Products({
 }) {
 console.log("Category en Products:", category);
   const [selectedProduct, setSelectedProduct] = useState(null);
+const buyByWhatsApp = (product) => {
+  const phone = "573134623765";
 
+  const message = `¡Hola! 👋 Me interesa el producto *${product.name}* que vi en Luna Store. ¿Podrían darme más información?`;
+
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+};
 const dummyProducts = [
   {
     id: 1,
@@ -353,7 +362,15 @@ const dummyProducts = [
                   </motion.button>
 
                 </div>
-
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    buyByWhatsApp(prod);
+  }}
+  className="mt-3 w-full rounded-md bg-green-600 py-2 text-xs font-medium text-white hover:bg-green-700 transition-colors duration-300"
+>
+  💬 Comprar por WhatsApp
+</button>
               </div>
 
             </motion.div>
