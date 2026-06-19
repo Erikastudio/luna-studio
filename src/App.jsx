@@ -26,8 +26,10 @@ export default function App() {
 
   // Search
   const [search, setSearch] = useState("");
-
-  // Toast
+const [category, setCategory] = useState("Todos");
+console.log("Categoría actual:", category);  
+const [selectedProduct, setSelectedProduct] = useState(null);
+// Toast
   const [showToast, setShowToast] = useState(false);
 
   // Guardar carrito automáticamente
@@ -64,14 +66,16 @@ export default function App() {
       />
 
       <Hero />
-      <Categories />
+      <Categories setCategory={setCategory} />
       <Offers />
 
       {/* Productos */}
-      <Products
-        addToCart={addToCart}
-        search={search}
-      />
+     <Products
+  addToCart={addToCart}
+  search={search}
+  category={category}
+  setCategory={setCategory}
+/>
 
       <Testimonials />
       <Footer />

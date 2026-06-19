@@ -4,11 +4,13 @@ import ProductModal from './ProductModal';
 
 export default function Products({
   addToCart,
-  search
+  search,
+  category,
+  setCategory
 }) {
-
+console.log("Category en Products:", category);
   const [selectedProduct, setSelectedProduct] = useState(null);
-const [category, setCategory] = useState("Todos");
+
 const dummyProducts = [
   {
     id: 1,
@@ -210,11 +212,11 @@ const dummyProducts = [
             Nuestro Catálogo
           </h2>
 
-          <p className="text-xl font-light tracking-wide uppercase text-neutral-900">
-            TIENDA SEYTU Y MODA
-          </p>
+<p className="text-xl font-light tracking-wide uppercase text-neutral-900">
+  {category === "Todos" ? "Productos Destacados" : category}
+</p>
 
-        </div>
+</div>
 
         {/* SIN RESULTADOS */}
         {filteredProducts.length === 0 && (
@@ -236,35 +238,46 @@ const dummyProducts = [
           </div>
 
         )}
-<div className="flex flex-wrap justify-center gap-3 mb-8">
+<div className="flex flex-wrap justify-center gap-4 mb-10">
 
-  <button onClick={() => setCategory("Todos")}>
-    Todos
-  </button>
-
-  <button onClick={() => setCategory("Maquillaje")}>
-    Maquillaje
-  </button>
-
-  <button onClick={() => setCategory("Cuidado Facial")}>
-    Cuidado Facial
-  </button>
-
-  <button onClick={() => setCategory("Accesorios")}>
-    Accesorios
+  <button
+    onClick={() => setCategory("Todos")}
+    className="px-6 py-2 rounded-full border border-neutral-300 hover:bg-black hover:text-white transition-all duration-300"
+  >
+    ✨ Todos
   </button>
 
   <button
-  onClick={() => {
-    console.log("Ropa");
-    setCategory("Ropa");
-  }}
+    onClick={() => setCategory("Maquillaje")}
+    className="px-6 py-2 rounded-full border border-pink-300 hover:bg-pink-500 hover:text-white transition-all duration-300"
+  >
+    💄 Maquillaje
+  </button>
+
+  <button
+    onClick={() => setCategory("Cuidado Facial")}
+    className="px-6 py-2 rounded-full border border-emerald-300 hover:bg-emerald-500 hover:text-white transition-all duration-300"
+  >
+    🧴 Cuidado Facial
+  </button>
+
+  <button
+    onClick={() => setCategory("Accesorios")}
+    className="px-6 py-2 rounded-full border border-amber-300 hover:bg-amber-500 hover:text-white transition-all duration-300"
+  >
+    👜 Accesorios
+  </button>
+
+<button
+  onClick={() => setCategory("Ropa")}
+  className="px-6 py-2 rounded-full border border-violet-300 hover:bg-violet-500 hover:text-white transition-all duration-300"
 >
-  Ropa
+  👗 Ropa
 </button>
 
 </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
 
           {filteredProducts.map((prod) => (
 
@@ -276,14 +289,13 @@ const dummyProducts = [
               className="group relative flex flex-col bg-white border border-neutral-100 p-2 transition-all duration-300 hover:shadow-md cursor-pointer"
             >
 
-              <div className="relative aspect-[3/4] w-full bg-neutral-50 overflow-hidden mb-3">
+              <div className="relative aspect-square w-full bg-neutral-50 overflow-hidden mb-3 p-4">
 
-                <img
-                  src={prod.img}
-                  alt={prod.name}
-                  className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                />
-
+               <img
+  src={prod.img}
+  alt={prod.name}
+  className="h-full w-full object-contain object-center group-hover:scale-105 transition-transform duration-700"
+/>     
                 {prod.tag && (
                   <span className="absolute top-2 left-2 bg-neutral-950 text-amber-500 text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5">
                     {prod.tag}
