@@ -1,3 +1,4 @@
+import OfferBanner from "./offers/OfferBanner";
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -20,7 +21,26 @@ export default function App() {
     return savedCart ? JSON.parse(savedCart) : [];
 
   });
+  useEffect(() => {
+    localStorage.setItem("luna-cart", JSON.stringify(cart));
+  }, [cart]);
+return (
+    <>
+      <OfferBanner />
 
+      <Navbar />
+      <Hero />
+      <Categories />
+      <Offers />
+      <Products />
+      <Testimonials />
+      <Footer />
+      <WhatsAppButton />
+      <Cart />
+      <Toast />
+    </>
+  );
+}
   // Abrir carrito
   const [openCart, setOpenCart] = useState(false);
 
@@ -99,4 +119,3 @@ const [selectedProduct, setSelectedProduct] = useState(null);
 
     </div>
   );
-}
