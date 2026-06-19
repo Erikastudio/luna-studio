@@ -13,22 +13,40 @@ import Toast from "./components/Toast";
 
 export default function App() {
 
-  // Carrito persistente
+  // 🛒 Carrito persistente
   const [cart, setCart] = useState(() => {
-
     const savedCart = localStorage.getItem("luna-cart");
-
     return savedCart ? JSON.parse(savedCart) : [];
-
   });
+
+  // UI states
+  const [openCart, setOpenCart] = useState(false);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("Todos");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+
+  // 💾 Guardar carrito automáticamente
   useEffect(() => {
     localStorage.setItem("luna-cart", JSON.stringify(cart));
   }, [cart]);
-return (
+
+  // ➕ Agregar productos
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
+  };
+
+  return (
     <>
-    <h1>🔥 PRUEBA VERCEL FUNCIONANDO 🔥</h1>
+      {/* 🔥 Banner oferta */}
       <OfferBanner />
 
+      {/* 🧭 Página */}
       <Navbar />
       <Hero />
       <Categories />
@@ -36,29 +54,14 @@ return (
       <Products />
       <Testimonials />
       <Footer />
+
+      {/* 💬 Botones y sistemas */}
       <WhatsAppButton />
       <Cart />
       <Toast />
     </>
   );
 }
-  // Abrir carrito
-  const [openCart, setOpenCart] = useState(false);
-
-  // Search
-  const [search, setSearch] = useState("");
-const [category, setCategory] = useState("Todos");
-console.log("Categoría actual:", category);  
-const [selectedProduct, setSelectedProduct] = useState(null);
-// Toast
-  const [showToast, setShowToast] = useState(false);
-
-  // Guardar carrito automáticamente
-  useEffect(() => {
-
-    localStorage.setItem("luna-cart", JSON.stringify(cart));
-
-  }, [cart]);
 
   // Agregar productos
   const addToCart = (product) => {
